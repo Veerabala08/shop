@@ -1,0 +1,33 @@
+.navbar{
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around 
+}
+
+.brand{
+    font-family: IntegralCF;
+}
+
+.menu{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
+.dropdown{
+    border: none;
+    font-size: large;
+}
+
+.search{
+    width: 400px;
+    min-width: auto;
+    height: 30px;
+    border-radius: 16px
+}
