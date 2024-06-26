@@ -1,12 +1,15 @@
 import Productcard from "./Productcard";
-
+import './ProductsCards.css'
 function Newproduct() {
-    return ( 
-        <>
+  return (
+    <>
+      
         <p>New Arrivals</p>
-        <Productcard />
-        </>
-     );
+        <div className="product-grid">
+          <Productcard />
+        </div>
+    </>
+  );
 }
 
 export default Newproduct;

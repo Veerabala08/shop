@@ -26,7 +26,7 @@ function Navbar() {
         <input className="search" type="text" placeholder="Search for products"/>
         <div className='navicons'>
         <img src = {accountPNG}/>
-        <img src = {cartPNG}/>
+        <img src = {cartPNG} />
         </div>
         </nav>
    
