@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -12,11 +14,15 @@ const ProductDetails = ({ addtocart }) => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { product, loading } = useSelector((state) => state.productState);
-    const [Count, setCount] = useState(1);
-    const check=false
+    const [count, setCount] = useState(1);
     useEffect(() => {
         dispatch(getProduct(id));
     }, [dispatch, id]);
+
+    const handleAddToCart = () => {
+        addtocart(product); // Dispatch addtocart action with product and count
+        setCount(1); // Reset count after adding to cart 
+    };
 
     if (loading) return <p>Loading...</p>;
     if (!product) return <p>Product not found.</p>;
@@ -28,14 +34,14 @@ const ProductDetails = ({ addtocart }) => {
                 <img src={product.data.image} alt={product.data.title} className="pd-image" />
                 <div className="pd-details">
                     <h2>{product.data.title}</h2>
-                    <p>${product.data.price * Count}</p>
+                    <p>${product.data.price * count}</p>
                     <p>{product.data.description}</p>
                     <div>
-                        <button className="pd-button" onClick={() => { Count > 1 && setCount(Count - 1) }}>-</button>
-                        <span className="countSpan">{Count}</span>
-                        <button className="pd-button" onClick={() => setCount(Count + 1)}>+</button>
+                        <button className="pd-button" onClick={() => { count > 1 && setCount(count - 1) }}>-</button>
+                        <span className="countSpan">{count}</span>
+                        <button className="pd-button" onClick={() => setCount(count + 1)}>+</button>
                         <Link to={`/cart`}>
-                        <button className="pd-button" onClick={() => addtocart(product,check)}>Add to cart</button>
+                        <button className="pd-button" onClick={() => handleAddToCart(product)}>Add to cart</button>
                         </Link>
                     </div>
                 </div>

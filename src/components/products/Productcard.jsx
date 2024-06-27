@@ -12,10 +12,10 @@ function Productcard({ addtocart }) {
   useEffect(() => {
     dispatch(getProducts);
   }, []);
-const check=1
+
   function handlecart(product){
     console.log(product)
-    addtocart(product,check)
+    // addtocart(product,check)
   }
   if (loading) return <p>Loading...</p>;
 

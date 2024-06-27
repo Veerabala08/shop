@@ -18,10 +18,11 @@ export const resetcheck = () => ({
     type: RESET_CHECK,  // New action creator
 });
 
+
 // initial state
 const initialState = {
-    cart: [],
-    check: 0
+    cart: [],  // Initialize as an array
+    check: false, // Initialize check as false
 };
 
 // reducer
@@ -36,18 +37,17 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: [...state.cart, action.payload],
-                check: true,
-                
+                check: true, // Set check to true when adding to cart
             };
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                cart: state.cart.filter((product) => product.id !== action.payload),
-                // check: updatedCart.length > 0,
+                cart: state.cart.filter(item => item.data.id !== action.payload),
             };
         default:
             return state;
     }
 };
+
 
 export default cartReducer;
