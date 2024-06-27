@@ -3,24 +3,25 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../redux/actions/productAction";
-import './ProductsCards.css';
-import { addtocart } from '../redux/slices/cartSlice';
 import { connect } from "react-redux";
-import Navbar from '../common/navbar/Navbar'
 import { Link } from "react-router-dom";
+import { addtocart } from '../redux/slices/cartSlice';
+import { getProduct } from "../redux/actions/productAction";
+import Navbar from '../common/navbar/Navbar'
+import './ProductsCards.css';
 
 const ProductDetails = ({ addtocart }) => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { product, loading } = useSelector((state) => state.productState);
     const [count, setCount] = useState(1);
+
     useEffect(() => {
         dispatch(getProduct(id));
     }, [dispatch, id]);
 
     const handleAddToCart = () => {
-        addtocart(product); // Dispatch addtocart action with product and count
+        addtocart(product,count); // Dispatch addtocart action with product and count
         setCount(1); // Reset count after adding to cart 
     };
 
@@ -41,7 +42,7 @@ const ProductDetails = ({ addtocart }) => {
                         <span className="countSpan">{count}</span>
                         <button className="pd-button" onClick={() => setCount(count + 1)}>+</button>
                         <Link to={`/cart`}>
-                        <button className="pd-button" onClick={() => handleAddToCart(product)}>Add to cart</button>
+                        <button className="pd-button" onClick={() => handleAddToCart(product,count)}>Add to cart</button>
                         </Link>
                     </div>
                 </div>
