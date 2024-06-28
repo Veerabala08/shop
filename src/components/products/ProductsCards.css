@@ -1,16 +1,33 @@
+
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
-
-  justify-content: space-around;
-  align-items: center;
   padding: 15px;
   gap: 10px;
 }
 
-.card {
-  display: grid;
-  grid-template-columns: 1fr;
+.cardImg{
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  background-color:  #F0EEED;
+  padding: 40px;
+}
+
+.ctitle{
+  font-weight: 600;
+  font-size: medium;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.cprice{
+  font-size: large;
+  font-weight: bold;
 }
 
 @media (max-width: 1200px) {
@@ -27,23 +44,89 @@
 
 @media (max-width: 500px) {
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 250px;
   }
 }
 
+
+
+/* product details */
 .product-details {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  column-gap: 40px;
 }
 
+@media  (max-width: 950px) {
+  .product-details{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+}
+.product-image{
+display: flex;
+align-items: center;
+padding: 30px;
+}
 .pd-image {
-  width: 344px;
+  max-width: 344px;
   height: auto;
   border-radius: 20px;
 }
 .pd-details{
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: normal;
+}
+
+.pd-details h2{
+  font-family: IntegralCF;
+}
+
+
+.price{
+  font-size: larger;
+  font-weight: 800;
+  font-family: Satoshi;
+}
+
+.description{
+  color: #00000099;
+  font-size: medium;
+}
+
+.pd-action-con{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  /* justify-content: space-evenly; */
+  align-items: center;
+}
+
+.pd-action{
+  background-color: #F0EEED;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.pd-button{
+  background-color: #F0EEED;
+  border-radius: 20px;
+}
+.countSpan{
+  background-color: #F0EEED;
+  line-height: 40px;
+  width: 40px;
+  text-align: center;
+}
+.pd-button-cart{
+  background-color: #000000;
+  border-radius: 20px;
+  color: #F0EEED;
+  width: 250px;
+  max-width:300px;
 }

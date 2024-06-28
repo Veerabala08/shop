@@ -31,22 +31,28 @@ const ProductDetails = ({ addtocart }) => {
     return (
         <>
         <Navbar />
+        <div className="container">
             <div className="product-details">
+              <div className="product-image">
                 <img src={product.data.image} alt={product.data.title} className="pd-image" />
+                </div>  
                 <div className="pd-details">
                     <h2>{product.data.title}</h2>
-                    <p>${product.data.price * count}</p>
-                    <p>{product.data.description}</p>
-                    <div>
+                    <p className="price">${product.data.price * count}</p>
+                    <p className="description">{product.data.description}</p>
+                    <div className="pd-action-con">
+                    <div className="pd-action">
                         <button className="pd-button" onClick={() => { count > 1 && setCount(count - 1) }}>-</button>
                         <span className="countSpan">{count}</span>
                         <button className="pd-button" onClick={() => setCount(count + 1)}>+</button>
+                    </div>
                         <Link to={`/cart`}>
-                        <button className="pd-button" onClick={() => handleAddToCart(product,count)}>Add to cart</button>
+                        <button className="pd-button-cart" onClick={() => handleAddToCart(product,count)}>Add to cart</button>
                         </Link>
                     </div>
                 </div>
             </div>
+        </div>
         </>
     );
 };

@@ -7,7 +7,10 @@
 }
 
 .brand{
+    display: flex;
     font-family: IntegralCF;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .menu{
@@ -25,9 +28,52 @@
     font-size: large;
 }
 
-.search{
+.search {
     width: 400px;
     min-width: auto;
+    padding-left: 10px;
     height: 30px;
-    border-radius: 16px
+    border-radius: 16px;
+    border: 1px solid #F0F0F0 !important;
+    background-color: #F0F0F0;
+}
+
+.navicons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
+.nav-icon{
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1200px) {
+
+    .nav-icon{
+    display: flex;
+}
+
+.menu{
+    flex-direction: column;
+    row-gap: 30px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    left:-107%;
+    background-color: #F0F0F0;
+}
+
+.menu.active{
+    left:0%
+}
+
+.search {
+    width: 300px;
+}
+
 }
