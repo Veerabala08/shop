@@ -5,6 +5,10 @@ import { getProducts } from "../redux/actions/productsAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import './ProductsCards.css'
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
+import { Rating } from "@smastrom/react-rating";
+import '@smastrom/react-rating/style.css'
 
 function Productcard() {
   const dispatch = useDispatch();
@@ -17,13 +21,27 @@ function Productcard() {
     console.log(product)
     // addtocart(product,check)
   }
-  if (loading) return <p>Loading...</p>;
+  const renderSkeletons = () => {
+    const skeletons = [];
+    for (let i = 0; i < 100; i++) {
+      skeletons.push(
+        <div key={i} className="card">
+          <Skeleton height={200} width={250} />
+          <Skeleton width={250} height={20} />
+          <Skeleton width={250} height={20} />
+        </div>
+      );
+    }
+    return skeletons;
+  };
 
-  if (!products) return <p>Product not found.</p>;
 
   return (
     <> 
-      {products &&
+      {loading ? (
+        // Display multiple skeletons when loading
+        renderSkeletons()
+      ) : (products &&
         products.map((product) => (
           <div key={product.id} className="card">
             <Link to={`/product/${product.id}`}> 
@@ -32,8 +50,14 @@ function Productcard() {
             </div>
             </Link>            
             <p className="ctitle" onClick={() => handlecart(product)}>{product.title}</p>
+            <Rating
+      style={{ maxWidth: 80 }}
+      value={product.rating.rate}
+      readOnly
+    />
             <p className="cprice">${product.price}</p>
           </div>
+          )
         ))}
     </>
   );

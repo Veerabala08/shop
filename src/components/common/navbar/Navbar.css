@@ -77,3 +77,11 @@
 }
 
 }
+
+
+@media screen and (max-width:600px) {
+
+    .search {
+        width: 100px;
+    }
+}

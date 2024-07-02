@@ -4,7 +4,10 @@ import { createSlice,  } from "@reduxjs/toolkit";
 const productsSlice = createSlice({
     name:'products',
     initialState:{
-        loading:false
+        products:[],
+        loading:false,
+        error:null
+ 
     },
     reducers:{
         // eslint-disable-next-line no-unused-vars
@@ -16,7 +19,7 @@ const productsSlice = createSlice({
         productsSuccess(state, action){
             return {
                 loading:false,
-                products: action.payload.data
+                products: action.payload.data,
             }
         },
         productsFail(state, action){
@@ -24,7 +27,8 @@ const productsSlice = createSlice({
                 loading:false,
                 error: action.payload
             }
-        }
+        },
+        
     }
 })
 

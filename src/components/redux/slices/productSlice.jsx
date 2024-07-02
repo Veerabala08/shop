@@ -5,6 +5,7 @@ const productSlice = createSlice({
     name:'product',
     initialState:{
         loading:false
+    
 },
     reducers:{
         // eslint-disable-next-line no-unused-vars
