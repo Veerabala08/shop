@@ -8,6 +8,7 @@ import {
 } from "../redux/slices/cartSlice";
 import "./Cart.css";
 import Navbar from "../common/navbar/Navbar";
+import Remove from "../../assets/icons/remove.png"
 
 const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   let data = cart && cart.length > 0 ? cart : [];
@@ -24,7 +25,11 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   const discountPercentage = 20;
   const discount = (total * discountPercentage) / 100;
   const discountedTotal = total - discount;
-
+  const hrStyle = {
+    // border: 'none',
+    border: '1px solid #0000001A', // Customize the color and thickness
+    margin: '20px 0', // Customize the margin
+  };
   return (
     <>
       <Navbar />
@@ -44,6 +49,7 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
             </p>
           ) : (
             data.map((item) => (
+              <>
               <div key={item.data.id} className="cart-item">
                 <img src={item.data.image} alt={item.data.title} />
                 <div className="cart-action">
@@ -51,15 +57,10 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
                   <p>${item.data.price * item.count}</p>
                 </div>
                 <div className="cart-action">
-                  <button
-                    className="cart-button-remove"
-                    onClick={() => {
+                  <img style={{ marginTop:'16px'}} src = {Remove} onClick={() => {
                       console.log("Removing item with id:", item.data.id);
                       removecart(item.data.id); // Pass item.id as payload
-                    }}
-                  >
-                    Remove
-                  </button>
+                    }} width={'20px'} height={'20px'}/>
                   <div className="count-div">
                     <button
                       onClick={() => {
@@ -75,15 +76,25 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
                   </div>
                 </div>
               </div>
+             { data.length > 1 ? <hr style={hrStyle} /> : <></>}
+              </>
+              
             ))
           )}
         </div>
         <div>
           <div className="order-summary">
-            <h3>Order Summary</h3>
-            <p>Total: ${total.toFixed(2)}</p>
-            <p>Discount (20%): -${discount.toFixed(2)}</p>
-            <h4>Discounted Total: ${discountedTotal.toFixed(2)}</h4>
+          <h3>Order Summary</h3>
+  <p>
+    <span>Total:</span> <span>${total.toFixed(2)}</span>
+  </p>
+  <p>
+    <span>Discount (20%):</span> <span style={{color:'red'}}>-${discount.toFixed(2)}</span>
+  </p>
+  <h4>
+    <span>Discounted Total:</span> <span>${discountedTotal.toFixed(2)}</span>
+  </h4>
+  
           </div>
         </div>
       </div>

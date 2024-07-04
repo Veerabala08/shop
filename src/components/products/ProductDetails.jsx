@@ -46,7 +46,7 @@ const ProductDetails = ({ addtocart }) => {
             )}
           </div>
           <div className="pd-details">
-            <h2>
+            <h2 className="pd-title">
               {loading ? (
                 <Skeleton width={400} count={2} />
               ) : (
@@ -54,7 +54,7 @@ const ProductDetails = ({ addtocart }) => {
               )}
             </h2>
             {loading ? <Skeleton width={100} count={1} /> :  <Rating
-              style={{ maxWidth: 80 }}
+              style={{ maxWidth: 80, paddingTop:'20px' }}
               value={product?.rating?.rate}
               readOnly
             />}

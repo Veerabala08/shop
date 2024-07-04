@@ -10,7 +10,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
-function Productcard() {
+function Productcard({visibleProducts}) {
   const dispatch = useDispatch();
   const { products, loading } = useSelector((state) => state.productsState);
   useEffect(() => {
@@ -23,7 +23,7 @@ function Productcard() {
   }
   const renderSkeletons = () => {
     const skeletons = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 4; i++) {
       skeletons.push(
         <div key={i} className="card">
           <Skeleton height={200} width={250} />
@@ -42,11 +42,11 @@ function Productcard() {
         // Display multiple skeletons when loading
         renderSkeletons()
       ) : (products &&
-        products.map((product) => (
+       products.slice(0,visibleProducts).map((product) => (
           <div key={product.id} className="card">
             <Link to={`/product/${product.id}`}> 
             <div className="cardImg">
-              <img src={product.image} alt="new arrivals"  width={200} height={200}/>
+              <img src={product.image} alt="new arrivals"  />
             </div>
             </Link>            
             <p className="ctitle" onClick={() => handlecart(product)}>{product.title}</p>

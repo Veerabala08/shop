@@ -21,7 +21,7 @@ function App() {
     <>
     <div style={container}>
             <Routes>
-                <Route path={"/"} element={<Login />} />
+            <Route path={"/"} element={<Login />} />
                 {
                 getEmail&&getPassword ? 
                 <>

@@ -25,7 +25,10 @@ function Navbar() {
             {open ? <IoClose />
             :<FiMenu /> }
             </div>
-            SHOP.CO
+          <div>
+              SHOP.CO
+            </div>
+            
         </div>
         <div>
             <ul className={open ? 'menu active' : "menu"}>
