@@ -4,7 +4,7 @@ import ProductDetails from "./components/products/ProductDetails.jsx";
 import Cart from "./components/cart/Cart.jsx";
 import Login from "./components/pages/Login.jsx"
 import { Routes, Route, } from "react-router-dom";
-
+import Footer from "./components/common/footer/Footer.jsx"
 
 function App() {
 
@@ -33,6 +33,7 @@ function App() {
                 }
             </Routes>
       </div> 
+      <Footer />
     </>
   );
 }

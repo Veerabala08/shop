@@ -1,7 +1,7 @@
 
 import Navbar from '../common/navbar/Navbar'
 import Newproduct from '../products/Newproduct';
-import Footer from '../common/footer/Footer'
+import Hero from '../pages/Hero'
 
 function Home(){
 
@@ -9,8 +9,9 @@ function Home(){
     return (
         <>
             <Navbar />  
+            <Hero />
             <Newproduct />
-            <Footer />
+            
         </>
     );
 }
