@@ -8,7 +8,9 @@ import {
 } from "../redux/slices/cartSlice";
 import "./Cart.css";
 import Navbar from "../common/navbar/Navbar";
-import Remove from "../../assets/icons/remove.png"
+import Remove from "../../assets/icons/remove.png";
+import { ImArrowRight } from "react-icons/im";
+import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
 
 const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   let data = cart && cart.length > 0 ? cart : [];
@@ -22,9 +24,10 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   };
 
   const total = calculateTotal(cart);
+  const deliveryFee = 15;
   const discountPercentage = 20;
   const discount = (total * discountPercentage) / 100;
-  const discountedTotal = total - discount;
+  const discountedTotal = (total - discount)+deliveryFee;
   const hrStyle = {
     // border: 'none',
     border: '1px solid #0000001A', // Customize the color and thickness
@@ -33,7 +36,8 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   return (
     <>
       <Navbar />
-      <h2>Your Cart</h2>
+      <Breadcrumbs />
+      <h1>Your Cart</h1>
       <div className="wcart">
         <div className="cart">
           {data.length === 0 ? (
@@ -91,13 +95,19 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   <p>
     <span>Discount (20%):</span> <span style={{color:'red'}}>-${discount.toFixed(2)}</span>
   </p>
+  <p>
+    <span>Delivery Fee :</span> <span>${data.length === 0 ? 0:deliveryFee}</span>
+  </p>
+  <hr style={{width:'95%'}}/>
   <h4>
-    <span>Discounted Total:</span> <span>${discountedTotal.toFixed(2)}</span>
+    <span>Total:</span> <span>${discountedTotal.toFixed(2)}</span>
   </h4>
-  
+  <button style={{width:'100%'}}>Go to Checkout <ImArrowRight style={{marginLeft:'5px', marginBottom:'-3px'}}/></button>
           </div>
         </div>
       </div>
+      <span style={{height:'50px'}}>
+      </span>
     </>
   );
 };

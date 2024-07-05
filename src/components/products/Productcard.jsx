@@ -19,7 +19,6 @@ function Productcard({visibleProducts}) {
 
   function handlecart(product){
     console.log(product)
-    // addtocart(product,check)
   }
   const renderSkeletons = () => {
     const skeletons = [];

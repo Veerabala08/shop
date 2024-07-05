@@ -32,7 +32,7 @@ function Footer() {
       <div className="footer2" >
         <div className="footer-grid">
           <div className="footer-grid-items1">
-            <h1 style={{fontFamily:'IntegralCF' }}>SHOP.CO</h1>
+            <h1 style={{fontFamily:'IntegralCF', marginLeft:'0px' }}>SHOP.CO</h1>
             <div style={{fontSize:'small', color:'#00000099'}}>
               We have clothes that suits your style and which you're proud to
               wear .Form women to men

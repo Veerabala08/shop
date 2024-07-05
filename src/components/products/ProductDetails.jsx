@@ -13,6 +13,8 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
+import Review from './ProductsReview'
 
 const ProductDetails = ({ addtocart }) => {
   const { id } = useParams();
@@ -32,6 +34,7 @@ const ProductDetails = ({ addtocart }) => {
   return (
     <>
       <Navbar />
+      <Breadcrumbs />
       <div className="container">
         <div className="product-details">
           <div className="product-image">
@@ -99,6 +102,7 @@ const ProductDetails = ({ addtocart }) => {
           </div>
         </div>
       </div>
+      <Review />
     </>
   );
 };

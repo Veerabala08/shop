@@ -45,6 +45,11 @@
     justify-content: space-between;
     column-gap: 30px;
 }
+.navicons *:hover{
+    background-color: rgb(46, 61, 61);
+    border-radius: 5px;
+
+}
 
 .nav-icon{
     display: none;
