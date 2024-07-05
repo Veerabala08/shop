@@ -19,7 +19,7 @@ function App() {
   };
   return (
     <>
-    <div style={container}>
+    {/* <div style={container}>
             <Routes>
             <Route path={"/"} element={<Login />} />
                 {
@@ -33,7 +33,16 @@ function App() {
                 }
             </Routes>
       </div> 
-      { getEmail&&getPassword ?  <Footer />:''}
+      { getEmail&&getPassword ?  <Footer />:''} */}
+       <div style={container}>
+            <Routes>
+            <Route path={"/"} element={<Login />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} /> 
+            </Routes>
+      </div> 
+      <Footer />
     </>
   );
 }
