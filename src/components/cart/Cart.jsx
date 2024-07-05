@@ -27,7 +27,10 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   const deliveryFee = 15;
   const discountPercentage = 20;
   const discount = (total * discountPercentage) / 100;
-  const discountedTotal = (total - discount)+deliveryFee;
+  let discountedTotal = total - discount;
+  if (cart.length > 0) {
+    discountedTotal += deliveryFee;
+  }
   const hrStyle = {
     // border: 'none',
     border: '1px solid #0000001A', // Customize the color and thickness
