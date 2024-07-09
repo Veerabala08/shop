@@ -5,15 +5,31 @@ import {FiMenu, } from 'react-icons/fi';
 import { IoClose } from "react-icons/io5";
 import { RiSearch2Line } from "react-icons/ri";
 import './Navbar.css'
+import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { getCategory } from '../../redux/actions/categoryAction';
+
+// import Category from '../../pages/Category';
 
 function Navbar() {
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+    
     const handleClick = ()=>{
         localStorage.clear();
         navigate("/")
         window.location.reload();
     }
+    const handleChange = (event) => {
+      const category_data = event.target.value;
+      console.log(category_data)
+      if (category_data == "Shop") {
+        console.log("nothing will happen")
+      }else{
+        dispatch(getCategory(category_data))
+        navigate(`/category/${category_data}`);
+      }
+    };
     const[ open, setOpen]= useState(false);
     const handleToggle = ()=> setOpen(!open)
 
@@ -50,12 +66,12 @@ function Navbar() {
             <ul className={open ? 'menu active' : "menu"}>
                 <li className='nav-items '>
 
-                <select className='dropdown' name="category" id="category">
+                <select className='dropdown' name="category" id="category" onClick={handleChange}>
                 <option >Shop</option>
-                <option value="electronics">electronics</option>
-                      <option value="jewelery">jewelery</option>
-                      <option value="men's clothing">men's clothing</option>
-                      <option value="women's clothing">women's clothing</option>
+                <option value="electronics">Electronics</option>
+                      <option value="jewelery">Jewelery</option>
+                      <option value="men's clothing">Men`s clothing</option>
+                      <option value="women's clothing">Women`s clothing</option>
                 </select>
 
                 </li>

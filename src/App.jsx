@@ -5,6 +5,7 @@ import Cart from "./components/cart/Cart.jsx";
 import Login from "./components/pages/Login.jsx"
 import { Routes, Route, } from "react-router-dom";
 import Footer from "./components/common/footer/Footer.jsx"
+import Category from "./components/pages/Category.jsx";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} /> 
+                <Route path="/category/:category" element={<Category />} />
                 </>
                 : <Route path={"/"} element={<Login />} />
                 }

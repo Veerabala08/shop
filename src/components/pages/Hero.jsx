@@ -13,7 +13,7 @@ function Hero() {
       <div className="hero-content">
         <h1 className="hero-title">
           Find clothes
-          <br /> that matches
+           that matches
           <br /> your style
         </h1>
         <p className="hero-description">

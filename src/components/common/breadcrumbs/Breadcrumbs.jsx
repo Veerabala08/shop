@@ -13,11 +13,11 @@ const Breadcrumbs = () => {
         <Link to="/home" style={{textDecoration:'none', color:'gray'}}>Home</Link>
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-
+          const decodedValue = decodeURIComponent(value); 
           return (
             <span key={to} className="breadcrumb-item">
               <IoIosArrowForward style={{color:'gray', marginBottom:'-3px'}} /> 
-              <Link style={{textDecoration:'none',color:'gray',}} to={to}>{value}</Link>
+              <Link style={{textDecoration:'none',color:'gray',}} to={to}>{decodedValue}</Link>
             </span>
           );
         })}

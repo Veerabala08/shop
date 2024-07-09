@@ -11,7 +11,9 @@ import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 
 function Productcard({visibleProducts}) {
+
   const dispatch = useDispatch();
+  
   const { products, loading } = useSelector((state) => state.productsState);
   useEffect(() => {
     dispatch(getProducts);

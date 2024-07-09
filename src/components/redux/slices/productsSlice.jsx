@@ -27,6 +27,7 @@ const productsSlice = createSlice({
                 loading:false,
                 error: action.payload
             }
+            
         },
         
     }
