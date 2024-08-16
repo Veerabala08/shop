@@ -7,11 +7,11 @@ email: admin@gmail.com
 password: 123QW!er
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
-  <img src="https://github.com/Veerabala08/nexcen/blob/main/public/shop.png" alt="Shop Image 1" style="width: 100%; height: auto; border-radius: 8px;">
-  <img src="https://github.com/Veerabala08/nexcen/blob/main/public/shop1.png" alt="Shop Image 2" style="width: 100%; height: auto; border-radius: 8px;">
-  <img src="https://github.com/Veerabala08/nexcen/blob/main/public/shop2.png" alt="Shop Image 3" style="width: 100%; height: auto; border-radius: 8px;">
-  <img src="https://github.com/Veerabala08/nexcen/blob/main/public/shop3.png" alt="Shop Image 4" style="width: 100%; height: auto; border-radius: 8px;">
-  <img src="https://github.com/Veerabala08/nexcen/blob/main/public/shop4.png" alt="Shop Image 5" style="width: 100%; height: auto; border-radius: 8px;">
+  <img src="https://github.com/Veerabala08/shop/blob/main/public/shop.png" alt="Shop Image 1" style="width: 100%; height: auto; border-radius: 8px;">
+  <img src="https://github.com/Veerabala08/shop/blob/main/public/shop1.png" alt="Shop Image 2" style="width: 100%; height: auto; border-radius: 8px;">
+  <img src="https://github.com/Veerabala08/shop/blob/main/public/shop2.png" alt="Shop Image 3" style="width: 100%; height: auto; border-radius: 8px;">
+  <img src="https://github.com/Veerabala08/shop/blob/main/public/shop3.png" alt="Shop Image 4" style="width: 100%; height: auto; border-radius: 8px;">
+  <img src="https://github.com/Veerabala08/shop/blob/main/public/shop4.png" alt="Shop Image 5" style="width: 100%; height: auto; border-radius: 8px;">
 </div>
 ## Overview
 
