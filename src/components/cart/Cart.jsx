@@ -11,11 +11,13 @@ import Navbar from "../common/navbar/Navbar";
 import Remove from "../../assets/icons/remove.png";
 import { ImArrowRight } from "react-icons/im";
 import Breadcrumbs from "../common/breadcrumbs/Breadcrumbs";
+import { useDispatch } from "react-redux";
+import { makeinvoice } from "../redux/slices/invoiceSlice";
 
 const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   let data = cart && cart.length > 0 ? cart : [];
   console.log("Cart data:", data);
-
+  const dispatch = useDispatch()
   const calculateTotal = (cart) => {
     return cart.reduce(
       (total, item) => total + item.data.price * item.count,
@@ -30,6 +32,18 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   let discountedTotal = total - discount;
   if (cart.length > 0) {
     discountedTotal += deliveryFee;
+  }
+
+  const handlecheckout =()=>{
+    data.forEach(item => {
+      dispatch(makeinvoice({
+        id: item.data.id,
+        name: item.data.title,
+        price: item.data.price,
+        count: item.count,
+        itemPrice: item.data.price * item.count,
+      }));
+    });
   }
   const hrStyle = {
     // border: 'none',
@@ -105,7 +119,7 @@ const Cart = ({ cart, removecart, increasecount, decreasecount }) => {
   <h4>
     <span>Total:</span> <span>${discountedTotal.toFixed(2)}</span>
   </h4>
-  <button style={{width:'100%'}}>Go to Checkout <ImArrowRight style={{marginLeft:'5px', marginBottom:'-3px'}}/></button>
+  <button style={{width:'100%'}} onClick={handlecheckout}>Go to Checkout <ImArrowRight style={{marginLeft:'5px', marginBottom:'-3px'}}/></button>
           </div>
         </div>
       </div>

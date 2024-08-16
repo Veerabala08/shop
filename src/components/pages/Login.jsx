@@ -20,7 +20,7 @@ function Login() {
     return (
     <>
       <div className="outer">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit= {handleSubmit}>
           <div className="title">
             Welcome <br />
             <span>signin to continue</span>
